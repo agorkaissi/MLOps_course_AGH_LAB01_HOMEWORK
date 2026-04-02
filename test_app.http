@@ -1,0 +1,25 @@
+# Test your FastAPI endpoints
+
+### Positive test
+POST http://127.0.0.1:8000/predict
+Content-Type: application/json
+
+{
+  "text": "What a great MLOps lecture, I am very satisfied"
+}
+
+### Negative test
+POST http://127.0.0.1:8000/predict
+Content-Type: application/json
+
+{
+  "text": "This is terrible."
+}
+
+### Neutral test
+POST http://127.0.0.1:8000/predict
+Content-Type: application/json
+
+{
+  "text": "I have no opinion"
+}
