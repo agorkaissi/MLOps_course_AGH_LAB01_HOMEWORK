@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sentence_transformers import SentenceTransformer
 import joblib
 
@@ -11,11 +11,11 @@ transformer_model = SentenceTransformer("models/sentence_transformer.model")
 
 
 class PredictRequest(BaseModel):
-    text: str
+    text: str = Field(min_length=1)
 
 
 class PredictResponse(BaseModel):
-    prediction: str
+    prediction: str = Field(min_length=1)
 
 
 @app.post("/predict", response_model=PredictResponse)
